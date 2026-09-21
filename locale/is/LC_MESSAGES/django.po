@@ -1,0 +1,310 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Language: is\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "New post"
+msgstr "Ný færsla"
+
+msgid "My posts"
+msgstr "Mínar færslur"
+
+msgid "Log out"
+msgstr "Skrá út"
+
+msgid "Log in"
+msgstr "Skrá inn"
+
+msgid "Sign up"
+msgstr "Nýskráning"
+
+msgid "Privacy"
+msgstr "Persónuvernd"
+
+msgid "House rules"
+msgstr "Reglur"
+
+msgid "All"
+msgstr "Allt"
+
+msgid "%(time)s ago"
+msgstr "%(time)s síðan"
+
+msgid "No posts here yet."
+msgstr "Engar færslur ennþá."
+
+msgid "You haven't posted yet."
+msgstr "Þú hefur ekki sent inn færslu ennþá."
+
+msgid "Submit for review"
+msgstr "Senda til yfirferðar"
+
+msgid "Create account"
+msgstr "Stofna aðgang"
+
+msgid "Forgot your password?"
+msgstr "Gleymdirðu lykilorðinu?"
+
+msgid "Reset your password"
+msgstr "Endurstilla lykilorð"
+
+msgid "Enter your account's email and we'll send a reset link."
+msgstr "Sláðu inn netfangið þitt og við sendum þér endurstillingartengil."
+
+msgid "Send reset link"
+msgstr "Senda endurstillingartengil"
+
+msgid "Check your email"
+msgstr "Athugaðu tölvupóstinn þinn"
+
+msgid "If that address is on an account, a reset link is on its way."
+msgstr ""
+"Ef þetta netfang tilheyrir aðgangi er endurstillingartengill á leiðinni."
+
+msgid "Set a new password"
+msgstr "Settu nýtt lykilorð"
+
+msgid "Set password"
+msgstr "Setja lykilorð"
+
+msgid "This reset link is invalid or has expired."
+msgstr "Þessi endurstillingartengill er ógildur eða útrunninn."
+
+msgid "Password updated"
+msgstr "Lykilorði breytt"
+
+msgid "<a href=\"%(login_url)s\">Log in</a> with your new password."
+msgstr "<a href=\"%(login_url)s\">Skráðu þig inn</a> með nýja lykilorðinu þínu."
+
+msgid "Privacy policy"
+msgstr "Persónuverndarstefna"
+
+msgid "What we collect"
+msgstr "Hvað við söfnum"
+
+msgid "Your email address, when you sign up."
+msgstr "Netfangið þitt, þegar þú skráir þig."
+
+msgid "The text of anything you post."
+msgstr "Textann í öllu sem þú birtir."
+
+msgid ""
+"The IP address you posted from, captured at the moment you submit a post."
+msgstr ""
+"IP-tölu tækisins sem þú notaðir, skráða um leið og þú sendir færsluna inn."
+
+msgid "Why"
+msgstr "Af hverju"
+
+msgid ""
+"Your email is used to sign you in and to reach you about your account if "
+"needed. A post's IP address and the email on your account at the time are "
+"kept alongside it so we can investigate and act on abuse reports (spam, "
+"harassment, illegal content) - not for tracking or analytics."
+msgstr ""
+"Netfangið þitt er notað til að skrá þig inn og til að hafa samband við þig "
+"vegna aðgangsins ef þörf krefur. IP-tala og netfang sem tengjast færslu eru "
+"geymd með henni svo hægt sé að rannsaka og bregðast við tilkynningum um "
+"misnotkun (ruslpóst, áreitni, ólöglegt efni) - ekki til að fylgjast með "
+"notkun."
+
+msgid "How long we keep it"
+msgstr "Hversu lengi við geymum gögnin"
+
+msgid ""
+"An approved post is visible on the site for 1 week. After that it's taken "
+"down, but we keep the post text, its IP address, and the email snapshot for "
+"one further week (2 weeks total from approval) in case a report needs "
+"investigating. After that, the post and everything tied to it is deleted "
+"permanently."
+msgstr ""
+"Samþykkt færsla er sýnileg á síðunni í 1 viku. Eftir það er hún tekin niður,"
+" en við geymum textann, IP-töluna og netfangið í eina viku til viðbótar (2 "
+"vikur alls frá samþykki) ef þörf er á að rannsaka tilkynningu. Eftir það er "
+"færslunni og öllu tengdu eytt endanlega."
+
+msgid ""
+"If a post is rejected or never approved, it isn't published, and we don't "
+"keep it around indefinitely either."
+msgstr ""
+"Ef færslu er hafnað eða hún aldrei samþykkt er hún ekki birt, og henni er "
+"ekki haldið endalaust heldur."
+
+msgid "Your rights"
+msgstr "Réttindi þín"
+
+msgid ""
+"Iceland is in the EEA, so GDPR-equivalent rights apply, enforced by <a "
+"href=\"https://www.personuvernd.is/\">Persónuvernd</a>. You can ask us to "
+"tell you what we hold about you or to delete it - in practice, most of it "
+"deletes itself within 2 weeks anyway. Contact us at %(contact_email)s with "
+"any request."
+msgstr ""
+"Ísland er hluti af EES, svo GDPR-sambærileg réttindi gilda, á vegum <a "
+"href=\"https://www.personuvernd.is/\">Persónuverndar</a>. Þú getur beðið "
+"okkur um að segja þér hvað við geymum um þig eða eytt því - í reynd eyðist "
+"mest af því sjálfkrafa innan 2 vikna. Hafðu samband við %(contact_email)s ef"
+" þú vilt bera fram slíka beiðni."
+
+msgid "Who this data is shared with"
+msgstr "Hverjir fá aðgang að þessum gögnum"
+
+msgid ""
+"We don't sell or share your data with third parties. It's used only for "
+"running and moderating this site."
+msgstr ""
+"Við seljum ekki né deilum gögnum þínum með þriðja aðila. Þau eru eingöngu "
+"notuð til að reka og hafa umsjón með síðunni."
+
+msgid "Sign-in options"
+msgstr "Innskráningarleiðir"
+
+msgid ""
+"If rafræn skilríki (Icelandic electronic ID) sign-in is added later, that "
+"involves an identity provider handling your kennitala directly - this policy"
+" will be updated to cover that before it launches."
+msgstr ""
+"Ef innskráning með rafrænum skilríkjum bætist við síðar mun "
+"auðkennisveitandi vinna með kennitöluna þína beint - þessi stefna verður "
+"uppfærð til að taka á því áður en það fer í loftið."
+
+msgid "What this is"
+msgstr "Hvað þetta er"
+
+msgid ""
+"A place to post text - ideas, stories, venting, complaints, whatever - for "
+"people in Iceland. Every post is reviewed before it goes public, stays up "
+"for a week, and there are no replies or comments."
+msgstr ""
+"Staður til að birta texta - hugmyndir, sögur, kvartanir, eða bara það sem "
+"liggur á hjarta - fyrir fólk á Íslandi. Sérhver færsla er yfirfarin áður en "
+"hún birtist, er uppi í viku, og það eru engin svör eða athugasemdir."
+
+msgid "What's not allowed"
+msgstr "Hvað er ekki leyfilegt"
+
+msgid "Racism or hate speech directed at a person or group."
+msgstr "Rasismi eða hatursorðræða beint að einstaklingi eða hópi."
+
+msgid ""
+"Doxxing - phone numbers, home addresses, or similar identifying details "
+"about someone. Naming someone in connection with something they did is fine;"
+" publishing ways to find or contact them isn't."
+msgstr ""
+"Að birta persónuupplýsingar - símanúmer, heimilisföng eða annað sambærilegt "
+"sem hægt er að nota til að finna manneskju. Að nefna einhvern í tengslum við"
+" eitthvað sem hann gerði er í lagi; að birta leiðir til að finna hann eða "
+"hafa samband er það ekki."
+
+msgid "Promoting illegal activity."
+msgstr "Að hvetja til ólöglegs athæfis."
+
+msgid "Advertising products or services."
+msgstr "Auglýsingar á vörum eða þjónustu."
+
+msgid "Spam."
+msgstr "Ruslpóstur."
+
+msgid ""
+"General opinions - including ones people disagree with, like wanting less "
+"immigration - are allowed as long as they don't cross into the above."
+msgstr ""
+"Almennar skoðanir - þar á meðal skoðanir sem fólk er ósammála, eins og að "
+"vilja færri innflytjendur - eru leyfðar svo lengi sem þær fara ekki yfir í "
+"ofangreint."
+
+msgid ""
+"Note: some content can be illegal under Icelandic law regardless of these "
+"rules (for example, public hate speech under the Icelandic Penal Code). We "
+"can remove a post and may be required to, even if it doesn't clearly break a"
+" rule above."
+msgstr ""
+"Athugið: sumt efni getur verið ólöglegt samkvæmt íslenskum lögum óháð þessum"
+" reglum (til dæmis opinber hatursorðræða samkvæmt almennum hegningarlögum). "
+"Við getum fjarlægt færslu og gæti þurft að gera það, jafnvel þótt hún brjóti"
+" ekki augljóslega gegn reglu hér að ofan."
+
+msgid "Moderation"
+msgstr "Umsjón"
+
+msgid ""
+"Every post is reviewed by a moderator before it's published. We can reject "
+"or remove a post, or ban an account, at our discretion."
+msgstr ""
+"Sérhver færsla er yfirfarin af umsjónarmanni áður en hún er birt. Við getum "
+"hafnað eða fjarlægt færslu, eða bannað aðgang, að eigin mati."
+
+msgid "Accounts"
+msgstr "Aðgangar"
+
+msgid ""
+"One account per person. Don't share your login. We can suspend or delete an "
+"account that repeatedly breaks these rules."
+msgstr ""
+"Einn aðgangur á mann. Ekki deila innskráningunni þinni. Við getum lokað eða "
+"eytt aðgangi sem brýtur þessar reglur ítrekað."
+
+msgid "No warranty"
+msgstr "Engin ábyrgð"
+
+msgid ""
+"This site is provided as-is. We're not responsible for the content people "
+"post, beyond our own moderation efforts."
+msgstr ""
+"Þessi síða er í boði eins og hún er. Við berum ekki ábyrgð á efni sem fólk "
+"birtir, umfram okkar eigin umsjón."
+
+msgid "Contact"
+msgstr "Hafa samband"
+
+msgid "Questions or reports: %(contact_email)s."
+msgstr "Spurningar eða tilkynningar: %(contact_email)s."
+
+msgid "Ideas"
+msgstr "Hugmyndir"
+
+msgid "Stories"
+msgstr "Sögur"
+
+msgid "Venting"
+msgstr "Gremja"
+
+msgid "Complaints"
+msgstr "Kvartanir"
+
+msgid "Other"
+msgstr "Annað"
+
+msgid "Pending review"
+msgstr "Í yfirferð"
+
+msgid "Approved"
+msgstr "Samþykkt"
+
+msgid "Rejected"
+msgstr "Hafnað"
+
+msgid "Used for sign-in and, if needed, contacting you about a post."
+msgstr ""
+"Notað til að skrá þig inn og, ef þörf krefur, til að hafa samband við þig "
+"vegna færslu."
+
+msgid "An account with this email already exists."
+msgstr "Aðgangur með þessu netfangi er þegar til."
+
+msgid "Up to %(limit)s characters."
+msgstr "Að hámarki %(limit)s stafir."
+
+msgid "Account created. You can post once your first submission is approved."
+msgstr ""
+"Aðgangur stofnaður. Þú getur birt færslu um leið og fyrsta innsendingin þín "
+"hefur verið samþykkt."
+
+msgid "You can post again in about %(minutes)s minute(s)."
+msgstr "Þú getur sent aðra færslu eftir um %(minutes)s mínútur."
+
+msgid "Submitted. It'll show up once a moderator approves it."
+msgstr "Sent inn. Hún birtist um leið og umsjónarmaður samþykkir hana."

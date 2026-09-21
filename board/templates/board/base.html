@@ -1,9 +1,10 @@
+{% load i18n %}
 <!doctype html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Bulletin Board{% endblock %}</title>
+  <title>{% block title %}{% trans "Bulletin Board" %}{% endblock %}</title>
   <style>
     :root { color-scheme: light dark; }
     body { font-family: system-ui, sans-serif; max-width: 640px; margin: 0 auto; padding: 1rem; line-height: 1.5; }
@@ -16,21 +17,36 @@
     textarea, input, select, button { font: inherit; width: 100%; box-sizing: border-box; padding: .5rem; margin: .25rem 0 .75rem; }
     button { width: auto; cursor: pointer; }
     .cats a { margin-right: .5rem; font-size: .9rem; }
+    .lang-switch { display: inline-flex; gap: .5rem; font-size: .85rem; }
+    .lang-switch button { width: auto; padding: 0; margin: 0; background: none; border: none; text-decoration: underline; cursor: pointer; color: inherit; }
+    .lang-switch button[disabled] { text-decoration: none; opacity: .5; cursor: default; }
   </style>
 </head>
 <body>
   <header>
-    <a href="{% url 'feed' %}"><strong>Bulletin Board</strong></a>
+    <a href="{% url 'feed' %}"><strong>{% trans "Bulletin Board" %}</strong></a>
     <nav>
       {% if user.is_authenticated %}
-        <a href="{% url 'new_post' %}">New post</a>
-        <a href="{% url 'my_posts' %}">My posts</a>
-        <a href="{% url 'logout' %}">Log out</a>
+        <a href="{% url 'new_post' %}">{% trans "New post" %}</a>
+        <a href="{% url 'my_posts' %}">{% trans "My posts" %}</a>
+        <a href="{% url 'logout' %}">{% trans "Log out" %}</a>
       {% else %}
-        <a href="{% url 'login' %}">Log in</a>
-        <a href="{% url 'signup' %}">Sign up</a>
+        <a href="{% url 'login' %}">{% trans "Log in" %}</a>
+        <a href="{% url 'signup' %}">{% trans "Sign up" %}</a>
       {% endif %}
     </nav>
+    <div class="lang-switch">
+      {% get_current_language as CURRENT_LANGUAGE %}
+      {% get_available_languages as AVAILABLE_LANGUAGES %}
+      {% for code, name in AVAILABLE_LANGUAGES %}
+        <form action="{% url 'set_language' %}" method="post" style="display:inline; margin:0; padding:0;">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.path }}">
+          <input type="hidden" name="language" value="{{ code }}">
+          <button type="submit" {% if code == CURRENT_LANGUAGE %}disabled{% endif %}>{{ name }}</button>
+        </form>
+      {% endfor %}
+    </div>
   </header>
 
   {% if messages %}
@@ -42,7 +58,7 @@
   {% block content %}{% endblock %}
 
   <footer style="margin-top:2rem; padding-top:1rem; border-top:1px solid #8884; font-size:.85rem; opacity:.8;">
-    <a href="{% url 'privacy' %}">Privacy</a> · <a href="{% url 'terms' %}">House rules</a>
+    <a href="{% url 'privacy' %}">{% trans "Privacy" %}</a> · <a href="{% url 'terms' %}">{% trans "House rules" %}</a>
   </footer>
 </body>
 </html>

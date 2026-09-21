@@ -1,10 +1,12 @@
 {% extends "board/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Sign up" %}{% endblock %}
 {% block content %}
-  <h1>Sign up</h1>
+  <h1>{% trans "Sign up" %}</h1>
   <form method="post">
     {% csrf_token %}
     <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">{{ form.hp_website }}</div>
     {% for field in form %}{% if field.name != "hp_website" %}{{ field.errors }}<p>{{ field.label_tag }} {{ field }}{% if field.help_text %}<br><small>{{ field.help_text }}</small>{% endif %}</p>{% endif %}{% endfor %}
-    <button type="submit">Create account</button>
+    <button type="submit">{% trans "Create account" %}</button>
   </form>
 {% endblock %}

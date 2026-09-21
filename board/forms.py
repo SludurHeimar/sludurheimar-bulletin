@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.utils.translation import gettext_lazy as _
 
 from .models import Post, Category, POST_MAX_LENGTH
 
@@ -16,7 +17,7 @@ class HoneypotMixin(forms.Form):
 
 
 class SignUpForm(HoneypotMixin, UserCreationForm):
-    email = forms.EmailField(required=True, help_text="Used for sign-in and, if needed, contacting you about a post.")
+    email = forms.EmailField(required=True, help_text=_("Used for sign-in and, if needed, contacting you about a post."))
 
     class Meta:
         model = User
@@ -25,7 +26,7 @@ class SignUpForm(HoneypotMixin, UserCreationForm):
     def clean_email(self):
         email = self.cleaned_data["email"]
         if User.objects.filter(email__iexact=email).exists():
-            raise forms.ValidationError("An account with this email already exists.")
+            raise forms.ValidationError(_("An account with this email already exists."))
         return email
 
     def save(self, commit=True):
@@ -40,7 +41,7 @@ class PostForm(HoneypotMixin, forms.ModelForm):
     body = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 6, "maxlength": POST_MAX_LENGTH}),
         max_length=POST_MAX_LENGTH,
-        help_text=f"Up to {POST_MAX_LENGTH} characters.",
+        help_text=_("Up to %(limit)s characters.") % {"limit": POST_MAX_LENGTH},
     )
 
     class Meta:

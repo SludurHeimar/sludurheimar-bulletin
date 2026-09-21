@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -127,6 +128,8 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "True") == "True"
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "noreply@example.is")
+# Shown on the privacy/terms pages for abuse reports and data requests.
+CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "[add a contact email]")
 
 
 # --- Production-only security -------------------------------------------
@@ -148,10 +151,16 @@ if not DEBUG:
 
 # --- Internationalization -------------------------------------------
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Atlantic/Reykjavik'
 USE_I18N = True
 USE_TZ = True
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('is', 'Íslenska'),
+]
+LOCALE_PATHS = [BASE_DIR / 'locale']
 
 
 # --- Static files -------------------------------------------------------

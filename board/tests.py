@@ -139,3 +139,17 @@ class PasswordResetTests(TestCase):
             self.client.post(reverse("password_reset"), {"email": "pw@example.is"})
             self.assertEqual(len(mail.outbox), 1)
             self.assertIn("/reset/", mail.outbox[0].body)
+
+
+class LanguageSwitchTests(TestCase):
+    def test_switching_language_translates_the_url_prefix(self):
+        resp = self.client.post(reverse("set_language"), {"language": "en", "next": "/is/"})
+        self.assertRedirects(resp, "/en/", fetch_redirect_response=False)
+
+    def test_icelandic_feed_shows_icelandic_text(self):
+        resp = self.client.get("/is/")
+        self.assertContains(resp, "Engar færslur ennþá.")
+
+    def test_english_feed_shows_english_text(self):
+        resp = self.client.get("/en/")
+        self.assertContains(resp, "No posts here yet.")

@@ -1,7 +1,8 @@
 {% extends "board/base.html" %}
+{% load i18n %}
 {% block content %}
   <div class="cats">
-    <a href="{% url 'feed' %}">All</a>
+    <a href="{% url 'feed' %}">{% trans "All" %}</a>
     {% for value, label in categories %}
       <a href="?category={{ value }}">{{ label }}</a>
     {% endfor %}
@@ -9,10 +10,10 @@
 
   {% for post in posts %}
     <div class="post">
-      <div class="meta">{{ post.get_category_display }} · {{ post.created_at|timesince }} ago</div>
+      <div class="meta">{{ post.get_category_display }} · {% blocktrans with time=post.created_at|timesince %}{{ time }} ago{% endblocktrans %}</div>
       <div>{{ post.body|linebreaksbr }}</div>
     </div>
   {% empty %}
-    <p>No posts here yet.</p>
+    <p>{% trans "No posts here yet." %}</p>
   {% endfor %}
 {% endblock %}

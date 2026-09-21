@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from datetime import timedelta
 
 # How long an approved post stays visible in the public feed.
@@ -18,17 +19,17 @@ RATE_LIMIT_MINUTES = 5
 
 
 class Category(models.TextChoices):
-    IDEAS = "ideas", "Ideas"
-    STORIES = "stories", "Stories"
-    VENTING = "venting", "Venting"
-    COMPLAINTS = "complaints", "Complaints"
-    OTHER = "other", "Other"
+    IDEAS = "ideas", _("Ideas")
+    STORIES = "stories", _("Stories")
+    VENTING = "venting", _("Venting")
+    COMPLAINTS = "complaints", _("Complaints")
+    OTHER = "other", _("Other")
 
 
 class PostStatus(models.TextChoices):
-    PENDING = "pending", "Pending review"
-    APPROVED = "approved", "Approved"
-    REJECTED = "rejected", "Rejected"
+    PENDING = "pending", _("Pending review")
+    APPROVED = "approved", _("Approved")
+    REJECTED = "rejected", _("Rejected")
 
 
 class Post(models.Model):

@@ -1,6 +1,8 @@
 from django.contrib.auth import views as auth_views
 from django.urls import path
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.urls import reverse_lazy
 
 from . import views
 
@@ -11,8 +13,14 @@ urlpatterns = [
     path("signup/", views.signup, name="signup"),
     path("login/", views.ThrottledLoginView.as_view(), name="login"),
     path("logout/", auth_views.LogoutView.as_view(next_page="feed"), name="logout"),
-    path("privacy/", TemplateView.as_view(template_name="board/privacy.html"), name="privacy"),
-    path("terms/", TemplateView.as_view(template_name="board/terms.html"), name="terms"),
+    path("privacy/", TemplateView.as_view(
+        template_name="board/privacy.html",
+        extra_context={"contact_email": settings.CONTACT_EMAIL},
+    ), name="privacy"),
+    path("terms/", TemplateView.as_view(
+        template_name="board/terms.html",
+        extra_context={"contact_email": settings.CONTACT_EMAIL},
+    ), name="terms"),
 
     path(
         "password-reset/",
@@ -20,7 +28,7 @@ urlpatterns = [
             template_name="board/password_reset.html",
             email_template_name="board/password_reset_email.txt",
             subject_template_name="board/password_reset_subject.txt",
-            success_url="/password-reset/done/",
+            success_url=reverse_lazy("password_reset_done"),
         ),
         name="password_reset",
     ),
@@ -33,7 +41,7 @@ urlpatterns = [
         "reset/<uidb64>/<token>/",
         auth_views.PasswordResetConfirmView.as_view(
             template_name="board/password_reset_confirm.html",
-            success_url="/reset/done/",
+            success_url=reverse_lazy("password_reset_complete"),
         ),
         name="password_reset_confirm",
     ),
