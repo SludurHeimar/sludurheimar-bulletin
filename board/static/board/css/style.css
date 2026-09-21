@@ -1,66 +1,128 @@
-/* Sludur Heimar / Bulletin Board — site styles */
+/* Sludurheimar — site styles
+   Type: Crimson Pro (serif) carries the brand name, headings, and post
+   text — the words people actually came here to read. Work Sans (sans)
+   handles interface chrome, so the two are never competing for the same
+   job. Both are self-hosted: a site built on anonymity shouldn't leak a
+   visitor's IP to a font CDN just to render a headline. */
+
+@font-face {
+  font-family: "Crimson Pro";
+  src: url("../fonts/CrimsonPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Crimson Pro";
+  src: url("../fonts/CrimsonPro-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Crimson Pro";
+  src: url("../fonts/CrimsonPro-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("../fonts/WorkSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("../fonts/WorkSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("../fonts/WorkSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   color-scheme: light dark;
 
-  --bg: #f7f5f1;
-  --bg-elevated: #ffffff;
-  --text: #1f2328;
-  --text-muted: #5c6470;
-  --border: #e4e0d8;
-  --accent: #2f6f6a;
-  --accent-hover: #245954;
-  --accent-contrast: #ffffff;
-  --danger: #b3261e;
-  --danger-bg: #fbeceb;
-  --success: #1f7a3d;
-  --success-bg: #e9f6ee;
-  --pending: #a15c00;
-  --pending-bg: #fbeedd;
-  --shadow: 0 1px 2px rgba(20, 20, 15, 0.04), 0 1px 8px rgba(20, 20, 15, 0.05);
-  --radius: 12px;
-  --radius-sm: 8px;
+  --font-serif: "Crimson Pro", Georgia, "Times New Roman", serif;
+  --font-sans: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 
-  --cat-ideas: #b45309;
-  --cat-ideas-bg: #fef3e2;
-  --cat-stories: #6d28d9;
-  --cat-stories-bg: #f2ecfc;
-  --cat-venting: #b91c1c;
-  --cat-venting-bg: #fcebea;
-  --cat-complaints: #c2410c;
-  --cat-complaints-bg: #fdece1;
-  --cat-other: #475569;
-  --cat-other-bg: #eceef1;
+  /* ash / ink — light mode */
+  --bg: #eef0ec;
+  --bg-elevated: #f8f9f6;
+  --text: #1a1f1c;
+  --text-muted: #5c655d;
+  --border: #d9ddd3;
+  --border-input: #7d8477;
+
+  /* moss — the one accent */
+  --accent: #2f5443;
+  --accent-hover: #24402f;
+  --accent-contrast: #f3f6f1;
+
+  --danger: #963226;
+  --danger-bg: #f7e6e1;
+  --success: #2f6a4a;
+  --success-bg: #e6f0e9;
+  --pending: #8a5a12;
+  --pending-bg: #f6ecda;
+
+  --radius: 8px;
+  --radius-sm: 6px;
+  --shadow: 0 1px 3px rgba(20, 24, 20, 0.08);
+
+  --cat-ideas: #8a6d1f;
+  --cat-ideas-bg: #f5eed8;
+  --cat-stories: #6b5a8e;
+  --cat-stories-bg: #ece7f4;
+  --cat-venting: #8a4a5a;
+  --cat-venting-bg: #f3e6ea;
+  --cat-complaints: #a3672f;
+  --cat-complaints-bg: #f6ead9;
+  --cat-other: #55606b;
+  --cat-other-bg: #e9edf0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #15181b;
-    --bg-elevated: #1d2125;
-    --text: #eef0f2;
-    --text-muted: #9aa3ad;
-    --border: #2c3136;
-    --accent: #4fada5;
-    --accent-hover: #6bc1b9;
-    --accent-contrast: #0d1414;
-    --danger: #f2a49c;
-    --danger-bg: #3a1f1d;
-    --success: #8fd6a8;
-    --success-bg: #1b3325;
-    --pending: #f0c084;
-    --pending-bg: #3a2c15;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.25);
+    /* night — dark mode */
+    --bg: #12181a;
+    --bg-elevated: #1a2123;
+    --text: #e8ece7;
+    --text-muted: #9aa39c;
+    --border: #2a3330;
+    --border-input: #5a6b60;
 
-    --cat-ideas: #f0b167;
-    --cat-ideas-bg: #3a2a14;
-    --cat-stories: #b79cf2;
-    --cat-stories-bg: #2a2140;
-    --cat-venting: #f0968e;
-    --cat-venting-bg: #3a1e1c;
-    --cat-complaints: #f0a679;
-    --cat-complaints-bg: #3a2416;
-    --cat-other: #b0b9c4;
-    --cat-other-bg: #262b30;
+    --accent: #7fc4a0;
+    --accent-hover: #99d4b6;
+    --accent-contrast: #0e1512;
+
+    --danger: #e69a8c;
+    --danger-bg: #3a201c;
+    --success: #93d6ac;
+    --success-bg: #1c3226;
+    --pending: #e0b478;
+    --pending-bg: #362712;
+
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+
+    --cat-ideas: #e0c67a;
+    --cat-ideas-bg: #332a12;
+    --cat-stories: #b7a6d9;
+    --cat-stories-bg: #29233a;
+    --cat-venting: #d9a3b0;
+    --cat-venting-bg: #372027;
+    --cat-complaints: #e0a978;
+    --cat-complaints-bg: #3a2718;
+    --cat-other: #aab6c2;
+    --cat-other-bg: #232a30;
   }
 }
 
@@ -72,19 +134,27 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
 .page {
-  max-width: 640px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 1.25rem 3rem;
 }
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--accent-hover); text-decoration: underline; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a, button, input, textarea, select { transition: color .15s ease, background-color .15s ease, border-color .15s ease; }
+}
 
 /* Header */
 
@@ -106,24 +176,26 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
-  font-size: 1.2rem;
+  gap: .55rem;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.01em;
 }
 .brand:hover { color: var(--text); text-decoration: none; }
 .brand .mark {
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 7px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--accent);
   color: var(--accent-contrast);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: .95rem;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
   flex: none;
 }
 
@@ -133,7 +205,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   gap: 1.1rem;
   flex-wrap: wrap;
   font-size: .93rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-left: auto;
 }
 .site-nav a { color: var(--text-muted); }
@@ -141,32 +213,28 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 .lang-switch {
   display: inline-flex;
-  gap: .3rem;
-  font-size: .8rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: .2rem;
-  background: var(--bg);
+  align-items: center;
+  gap: .5rem;
+  font-size: .82rem;
 }
 .lang-switch button {
   width: auto;
   border: none;
   background: none;
-  padding: .28rem .65rem;
+  padding: 0;
   margin: 0;
-  border-radius: 999px;
   cursor: pointer;
   color: var(--text-muted);
   font: inherit;
-  font-weight: 600;
+  font-weight: 500;
 }
 .lang-switch button:hover { color: var(--accent); }
 .lang-switch button[disabled] {
-  background: var(--accent);
-  color: var(--accent-contrast);
+  color: var(--accent);
+  font-weight: 700;
   cursor: default;
-  opacity: 1;
 }
+.lang-switch .divider { color: var(--border); }
 
 /* Messages */
 
@@ -181,89 +249,114 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   font-weight: 600;
 }
 
-/* Category filter chips */
+/* Feed intro */
+
+.feed-intro {
+  color: var(--text-muted);
+  font-size: .96rem;
+  max-width: 46ch;
+  margin: 0 0 1.5rem;
+}
+
+/* Category filter — an inline list, not pill buttons */
 
 .cats {
   display: flex;
   flex-wrap: wrap;
-  gap: .45rem;
-  margin-bottom: 1.4rem;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid var(--border);
 }
 .cats a {
   display: inline-block;
-  padding: .35rem .85rem;
-  border-radius: 999px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  padding: 0 .95rem .6rem 0;
+  margin-right: .95rem;
   color: var(--text-muted);
-  font-size: .87rem;
-  font-weight: 600;
+  font-size: .92rem;
+  font-weight: 500;
+  border-right: 1px solid var(--border);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
 }
-.cats a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+.cats a:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.cats a:hover { color: var(--accent); text-decoration: none; }
 .cats a.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-contrast);
+  color: var(--accent);
+  font-weight: 700;
+  border-bottom-color: var(--accent);
 }
 
-/* Posts */
+/* Posts — quiet text blocks; the left rule carries the category color */
 
 .post {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1rem 1.15rem;
-  margin-bottom: .9rem;
-  box-shadow: var(--shadow);
+  border-left: 3px solid var(--cat-other);
+  border-bottom: 1px solid var(--border);
+  padding: .1rem 0 1.15rem 1rem;
+  margin-bottom: 1.15rem;
 }
+.post:last-child { border-bottom: none; }
+.post.cat-ideas { border-left-color: var(--cat-ideas); }
+.post.cat-stories { border-left-color: var(--cat-stories); }
+.post.cat-venting { border-left-color: var(--cat-venting); }
+.post.cat-complaints { border-left-color: var(--cat-complaints); }
+.post.cat-other { border-left-color: var(--cat-other); }
+
 .post .meta {
   display: flex;
-  align-items: center;
-  gap: .5rem;
-  font-size: .78rem;
+  align-items: baseline;
+  gap: .9rem;
+  font-size: .8rem;
   color: var(--text-muted);
-  margin-bottom: .55rem;
+  margin-bottom: .5rem;
 }
-.post .body { white-space: pre-line; word-wrap: break-word; }
+.post .meta .category { font-weight: 600; }
+
+.post .body {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+/* Status badge — used only on "My posts", where the moderation state is
+   something the author needs to act on, not just organizational color */
 
 .badge {
   display: inline-block;
-  padding: .15rem .55rem;
-  border-radius: 999px;
+  padding: .1rem .5rem;
+  border-radius: var(--radius-sm);
   font-weight: 700;
-  font-size: .72rem;
-  text-transform: uppercase;
-  letter-spacing: .02em;
+  font-size: .75rem;
 }
-.badge-ideas { color: var(--cat-ideas); background: var(--cat-ideas-bg); }
-.badge-stories { color: var(--cat-stories); background: var(--cat-stories-bg); }
-.badge-venting { color: var(--cat-venting); background: var(--cat-venting-bg); }
-.badge-complaints { color: var(--cat-complaints); background: var(--cat-complaints-bg); }
-.badge-other { color: var(--cat-other); background: var(--cat-other-bg); }
-
 .badge-pending { color: var(--pending); background: var(--pending-bg); }
 .badge-approved { color: var(--success); background: var(--success-bg); }
 .badge-rejected { color: var(--danger); background: var(--danger-bg); }
 
 .empty-state {
-  text-align: center;
   color: var(--text-muted);
-  padding: 2.5rem 1rem;
-  border: 1px dashed var(--border);
-  border-radius: var(--radius);
-  background: var(--bg-elevated);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border);
 }
 
 /* Headings */
 
 h1 {
-  font-size: 1.55rem;
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 700;
   letter-spacing: -0.01em;
   margin: 0 0 1.1rem;
 }
 h2 {
-  font-size: 1.1rem;
-  margin: 1.6rem 0 .5rem;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1.7rem 0 .5rem;
 }
 .page > h1:first-child,
 .form-card h1 { margin-top: 0; }
@@ -274,7 +367,7 @@ h2 {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.4rem 1.4rem 1.5rem;
+  padding: 1.5rem 1.5rem 1.6rem;
   box-shadow: var(--shadow);
   max-width: 440px;
 }
@@ -284,7 +377,7 @@ form p { margin: 0 0 1rem; }
 label {
   display: block;
   font-size: .85rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: .3rem;
   color: var(--text);
 }
@@ -294,17 +387,17 @@ textarea, input[type="text"], input[type="email"], input[type="password"], selec
   width: 100%;
   box-sizing: border-box;
   padding: .6rem .7rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-input);
   border-radius: var(--radius-sm);
   background: var(--bg);
   color: var(--text);
-  transition: border-color .15s ease;
 }
 textarea:focus, input:focus, select:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
 }
-textarea { min-height: 7.5rem; resize: vertical; }
+textarea { min-height: 7.5rem; resize: vertical; font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.6; }
 
 small { color: var(--text-muted); font-size: .8rem; }
 
@@ -328,7 +421,6 @@ button, input[type="submit"] {
   border-radius: var(--radius-sm);
   padding: .65rem 1.3rem;
   margin: .25rem 0 0;
-  transition: background .15s ease;
 }
 button:hover, input[type="submit"]:hover { background: var(--accent-hover); }
 

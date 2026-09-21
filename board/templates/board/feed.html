@@ -1,6 +1,8 @@
 {% extends "board/base.html" %}
 {% load i18n %}
 {% block content %}
+  <p class="feed-intro">{% trans "Say what you can't say elsewhere. No names, no replies - each post is checked, then gone within two weeks." %}</p>
+
   <div class="cats">
     <a href="{% url 'feed' %}" class="{% if not request.GET.category %}active{% endif %}">{% trans "All" %}</a>
     {% for value, label in categories %}
@@ -9,14 +11,14 @@
   </div>
 
   {% for post in posts %}
-    <div class="post">
+    <div class="post cat-{{ post.category }}">
       <div class="meta">
-        <span class="badge badge-{{ post.category }}">{{ post.get_category_display }}</span>
+        <span class="category">{{ post.get_category_display }}</span>
         <span>{% blocktrans with time=post.created_at|timesince %}{{ time }} ago{% endblocktrans %}</span>
       </div>
       <div class="body">{{ post.body|linebreaksbr }}</div>
     </div>
   {% empty %}
-    <p class="empty-state">{% trans "No posts here yet." %}</p>
+    <p class="empty-state">{% trans "Nothing here yet. Say the first thing." %}</p>
   {% endfor %}
 {% endblock %}

@@ -148,8 +148,8 @@ class LanguageSwitchTests(TestCase):
 
     def test_icelandic_feed_shows_icelandic_text(self):
         resp = self.client.get("/is/")
-        self.assertContains(resp, "Engar færslur ennþá.")
+        self.assertContains(resp, "Ekkert hér ennþá. Segðu fyrsta orðið.")
 
     def test_english_feed_shows_english_text(self):
         resp = self.client.get("/en/")
-        self.assertContains(resp, "No posts here yet.")
+        self.assertContains(resp, "Nothing here yet. Say the first thing.")

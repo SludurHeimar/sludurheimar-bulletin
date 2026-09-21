@@ -33,8 +33,11 @@ msgstr "Allt"
 msgid "%(time)s ago"
 msgstr "%(time)s síðan"
 
-msgid "No posts here yet."
-msgstr "Engar færslur ennþá."
+msgid "Nothing here yet. Say the first thing."
+msgstr "Ekkert hér ennþá. Segðu fyrsta orðið."
+
+msgid "Say what you can't say elsewhere. No names, no replies - each post is checked, then gone within two weeks."
+msgstr "Segðu það sem þú getur ekki sagt annars staðar. Engin nöfn, engin svör - hver færsla er yfirfarin og hverfur svo innan tveggja vikna."
 
 msgid "You haven't posted yet."
 msgstr "Þú hefur ekki sent inn færslu ennþá."

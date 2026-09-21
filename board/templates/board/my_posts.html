@@ -4,9 +4,9 @@
 {% block content %}
   <h1>{% trans "My posts" %}</h1>
   {% for post in posts %}
-    <div class="post">
+    <div class="post cat-{{ post.category }}">
       <div class="meta">
-        <span class="badge badge-{{ post.category }}">{{ post.get_category_display }}</span>
+        <span class="category">{{ post.get_category_display }}</span>
         <span class="badge badge-{{ post.status }}">{{ post.get_status_display }}</span>
         <span>{% blocktrans with time=post.created_at|timesince %}{{ time }} ago{% endblocktrans %}</span>
       </div>
