@@ -15,7 +15,10 @@
         {% if user.is_authenticated %}
           <a href="{% url 'new_post' %}">{% trans "New post" %}</a>
           <a href="{% url 'my_posts' %}">{% trans "My posts" %}</a>
-          <a href="{% url 'logout' %}">{% trans "Log out" %}</a>
+          <form action="{% url 'logout' %}" method="post" class="logout-form">
+            {% csrf_token %}
+            <button type="submit">{% trans "Log out" %}</button>
+          </form>
         {% else %}
           <a href="{% url 'login' %}">{% trans "Log in" %}</a>
           <a href="{% url 'signup' %}">{% trans "Sign up" %}</a>

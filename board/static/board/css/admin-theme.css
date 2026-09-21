@@ -1,0 +1,36 @@
+/* Restyles Django admin's default blue to the site's moss brand.
+   Overrides the CSS custom properties admin/css/base.css defines,
+   rather than fighting its selectors. */
+
+:root, html[data-theme="light"] {
+  --primary: #2f5443;
+  --secondary: #24402f;
+  --accent: #7fc4a0;
+  --header-color: #eef0ec;
+
+  --link-fg: #2f5443;
+  --link-hover-color: #1a2f24;
+  --link-selected-fg: #24402f;
+
+  --button-bg: var(--secondary);
+  --button-hover-bg: #1a2f24;
+  --default-button-bg: #1a2f24;
+  --default-button-hover-bg: var(--secondary);
+
+  --selected-row: #eef4f0;
+}
+
+html[data-theme="dark"] {
+  --primary: #7fc4a0;
+  --secondary: #24402f;
+  --accent: #7fc4a0;
+
+  --link-fg: #93d6ac;
+  --link-hover-color: #b6e6c9;
+  --link-selected-fg: #93d6ac;
+
+  --button-bg: #2f5443;
+  --button-hover-bg: #3a664f;
+  --default-button-bg: #3a664f;
+  --default-button-hover-bg: #2f5443;
+}
