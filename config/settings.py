@@ -169,9 +169,17 @@ LOCALE_PATHS = [BASE_DIR / 'locale']
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+# In production, whitenoise serves hashed, far-future-cached static files via a
+# manifest built by `collectstatic` at deploy time. That manifest doesn't exist
+# during local development (no collectstatic run), so {% static %} would raise
+# a "missing manifest entry" error - fall back to plain static storage in DEBUG.
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": (
+            "django.contrib.staticfiles.storage.StaticFilesStorage"
+            if DEBUG
+            else "whitenoise.storage.CompressedManifestStaticFilesStorage"
+        ),
     },
 }
 

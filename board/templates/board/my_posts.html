@@ -5,10 +5,14 @@
   <h1>{% trans "My posts" %}</h1>
   {% for post in posts %}
     <div class="post">
-      <div class="meta">{{ post.get_category_display }} · {{ post.get_status_display }} · {% blocktrans with time=post.created_at|timesince %}{{ time }} ago{% endblocktrans %}</div>
-      <div>{{ post.body|linebreaksbr }}</div>
+      <div class="meta">
+        <span class="badge badge-{{ post.category }}">{{ post.get_category_display }}</span>
+        <span class="badge badge-{{ post.status }}">{{ post.get_status_display }}</span>
+        <span>{% blocktrans with time=post.created_at|timesince %}{{ time }} ago{% endblocktrans %}</span>
+      </div>
+      <div class="body">{{ post.body|linebreaksbr }}</div>
     </div>
   {% empty %}
-    <p>{% trans "You haven't posted yet." %}</p>
+    <p class="empty-state">{% trans "You haven't posted yet." %}</p>
   {% endfor %}
 {% endblock %}
