@@ -123,6 +123,18 @@ LOGOUT_REDIRECT_URL = 'feed'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'noreply@example.is'
 
+if not DEBUG:
+    # Flip on automatically once DEBUG is False at deploy time. Also set a
+    # real SECRET_KEY and ALLOWED_HOSTS via environment variables then -
+    # don't leave the dev ones from this file in production.
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
+
 USE_I18N = True
 
 USE_TZ = True

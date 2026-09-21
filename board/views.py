@@ -3,18 +3,27 @@ from datetime import timedelta
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.views import LoginView
+from django.shortcuts import render, redirect
 from django.utils import timezone
 
 from .forms import SignUpForm, PostForm
 from .models import Post, PostStatus, Category, RATE_LIMIT_MINUTES
 from .moderation import get_auto_flags
+from .throttle import too_many_attempts, throttled_response
 
 
 def signup(request):
     if request.method == "POST":
+        if too_many_attempts(request, "signup", limit=10, window_seconds=600):
+            return throttled_response()
+
         form = SignUpForm(request.POST)
         if form.is_valid():
+            if form.is_bot():
+                # Pretend it worked; don't create an account or tip off the bot.
+                messages.success(request, "Account created. You can post once your first submission is approved.")
+                return redirect("feed")
             user = form.save()
             login(request, user)
             messages.success(request, "Account created. You can post once your first submission is approved.")
@@ -22,6 +31,15 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, "board/signup.html", {"form": form})
+
+
+class ThrottledLoginView(LoginView):
+    template_name = "board/login.html"
+
+    def post(self, request, *args, **kwargs):
+        if too_many_attempts(request, "login", limit=15, window_seconds=600):
+            return throttled_response()
+        return super().post(request, *args, **kwargs)
 
 
 def feed(request):
@@ -50,6 +68,9 @@ def new_post(request):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
+            if form.is_bot():
+                messages.success(request, "Submitted. It'll show up once a moderator approves it.")
+                return redirect("feed")
             post = form.save(commit=False)
             post.author = request.user
             post.author_email_snapshot = request.user.email

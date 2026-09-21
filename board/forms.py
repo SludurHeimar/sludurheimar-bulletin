@@ -5,7 +5,17 @@ from django.contrib.auth.models import User
 from .models import Post, Category, POST_MAX_LENGTH
 
 
-class SignUpForm(UserCreationForm):
+class HoneypotMixin(forms.Form):
+    """A hidden field real users never see or fill; bots filling every
+    field often trip it. Checked via is_bot(), never a visible error -
+    no point telling an automated script what tripped it."""
+    hp_website = forms.CharField(required=False, widget=forms.HiddenInput())
+
+    def is_bot(self):
+        return bool(self.cleaned_data.get("hp_website"))
+
+
+class SignUpForm(HoneypotMixin, UserCreationForm):
     email = forms.EmailField(required=True, help_text="Used for sign-in and, if needed, contacting you about a post.")
 
     class Meta:
@@ -26,7 +36,7 @@ class SignUpForm(UserCreationForm):
         return user
 
 
-class PostForm(forms.ModelForm):
+class PostForm(HoneypotMixin, forms.ModelForm):
     body = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 6, "maxlength": POST_MAX_LENGTH}),
         max_length=POST_MAX_LENGTH,

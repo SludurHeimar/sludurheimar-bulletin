@@ -3,7 +3,8 @@
   <h1>New post</h1>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">{{ form.hp_website }}</div>
+    {% for field in form %}{% if field.name != "hp_website" %}{{ field.errors }}<p>{{ field.label_tag }} {{ field }}{% if field.help_text %}<br><small>{{ field.help_text }}</small>{% endif %}</p>{% endif %}{% endfor %}
     <button type="submit">Submit for review</button>
   </form>
 {% endblock %}
