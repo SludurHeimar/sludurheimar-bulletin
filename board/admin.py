@@ -1,6 +1,10 @@
 from django.contrib import admin
 from django.utils import timezone
 
+admin.site.site_header = "Bulletin Board"
+admin.site.site_title = "Bulletin Board admin"
+admin.site.index_title = "Moderation"
+
 from .models import Post, PostStatus
 
 
