@@ -1,5 +1,6 @@
 from django.contrib.auth import views as auth_views
 from django.urls import path
+from django.views.generic import TemplateView
 
 from . import views
 
@@ -10,6 +11,8 @@ urlpatterns = [
     path("signup/", views.signup, name="signup"),
     path("login/", views.ThrottledLoginView.as_view(), name="login"),
     path("logout/", auth_views.LogoutView.as_view(next_page="feed"), name="logout"),
+    path("privacy/", TemplateView.as_view(template_name="board/privacy.html"), name="privacy"),
+    path("terms/", TemplateView.as_view(template_name="board/terms.html"), name="terms"),
 
     path(
         "password-reset/",
