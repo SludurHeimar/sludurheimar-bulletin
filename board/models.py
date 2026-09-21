@@ -13,6 +13,9 @@ RETENTION_DAYS = LIVE_DAYS + 7
 # Character limit for a post body. Placeholder - confirm before launch.
 POST_MAX_LENGTH = 1000
 
+# Minimum gap between two posts from the same account, to slow spam.
+RATE_LIMIT_MINUTES = 5
+
 
 class Category(models.TextChoices):
     IDEAS = "ideas", "Ideas"

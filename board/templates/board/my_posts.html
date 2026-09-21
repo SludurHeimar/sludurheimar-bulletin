@@ -1,0 +1,12 @@
+{% extends "board/base.html" %}
+{% block content %}
+  <h1>My posts</h1>
+  {% for post in posts %}
+    <div class="post">
+      <div class="meta">{{ post.get_category_display }} · {{ post.get_status_display }} · {{ post.created_at|timesince }} ago</div>
+      <div>{{ post.body|linebreaksbr }}</div>
+    </div>
+  {% empty %}
+    <p>You haven't posted yet.</p>
+  {% endfor %}
+{% endblock %}
