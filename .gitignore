@@ -3,4 +3,5 @@
 .env
 __pycache__/
 staticfiles/
+!staticfiles/.gitkeep
 venv/

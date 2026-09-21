@@ -1,7 +1,17 @@
+from django.contrib.auth.management import create_permissions
 from django.db import migrations
 
 
 def create_moderators_group(apps, schema_editor):
+    # Default model permissions (view_post, change_post, ...) are normally
+    # created by a post_migrate signal that fires AFTER all migrations in
+    # this run finish - which is too late for a data migration in the same
+    # run to use them. Create them explicitly here first.
+    app_config = apps.get_app_config("board")
+    app_config.models_module = True
+    create_permissions(app_config, apps=apps, verbosity=0)
+    app_config.models_module = None
+
     Group = apps.get_model("auth", "Group")
     Permission = apps.get_model("auth", "Permission")
     ContentType = apps.get_model("contenttypes", "ContentType")
