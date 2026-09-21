@@ -38,6 +38,9 @@ class Post(models.Model):
 
     status = models.CharField(max_length=10, choices=PostStatus.choices, default=PostStatus.PENDING)
     moderator_note = models.CharField(max_length=300, blank=True)
+    # Filled in automatically at submission time by board.moderation.get_auto_flags -
+    # a hint for triage, not an auto-decision. Comma-separated.
+    auto_flags = models.CharField(max_length=300, blank=True)
 
     # Snapshotted at post time, independent of the account, so a later
     # email/account change doesn't rewrite the audit trail. Cleared by the

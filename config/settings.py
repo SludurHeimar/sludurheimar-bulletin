@@ -117,6 +117,12 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'feed'
 LOGOUT_REDIRECT_URL = 'feed'
 
+# Dev-only: password reset emails print to the console instead of sending.
+# Before deploying, point this at a real transactional-email provider and
+# set DEFAULT_FROM_EMAIL to an address on your domain.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'noreply@example.is'
+
 USE_I18N = True
 
 USE_TZ = True

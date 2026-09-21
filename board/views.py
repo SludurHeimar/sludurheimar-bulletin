@@ -8,6 +8,7 @@ from django.utils import timezone
 
 from .forms import SignUpForm, PostForm
 from .models import Post, PostStatus, Category, RATE_LIMIT_MINUTES
+from .moderation import get_auto_flags
 
 
 def signup(request):
@@ -54,6 +55,7 @@ def new_post(request):
             post.author_email_snapshot = request.user.email
             post.ip_address = request.META.get("REMOTE_ADDR")
             post.status = PostStatus.PENDING
+            post.auto_flags = ", ".join(get_auto_flags(post.body))
             post.save()
             messages.success(request, "Submitted. It'll show up once a moderator approves it.")
             return redirect("feed")

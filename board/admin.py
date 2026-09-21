@@ -6,11 +6,17 @@ from .models import Post, PostStatus
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("id", "category", "status", "author", "created_at", "is_publicly_visible")
+    list_display = ("id", "category", "status", "auto_flags", "author", "created_at", "is_publicly_visible")
     list_filter = ("status", "category")
     search_fields = ("body", "author__username", "author_email_snapshot")
-    readonly_fields = ("author_email_snapshot", "ip_address", "created_at", "approved_at")
+    readonly_fields = ("author_email_snapshot", "ip_address", "created_at", "approved_at", "auto_flags")
     actions = ["approve_posts", "reject_posts"]
+
+    def get_queryset(self, request):
+        # Flagged-but-pending posts first, so a moderator sees the ones
+        # worth a closer look at the top of the queue.
+        qs = super().get_queryset(request)
+        return qs.order_by("status", "-auto_flags", "-created_at")
 
     @admin.action(description="Approve selected posts (goes live now)")
     def approve_posts(self, request, queryset):
